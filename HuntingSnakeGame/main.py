@@ -33,7 +33,13 @@ while is_game_on:
         snake.extend()
 
     # Detect collision with wall.
-    
+    if snake.head.xcor() > WALL_POSITION or snake.head.xcor() < -WALL_POSITION:
+        is_game_on = False
+        break
+
+    if snake.head.ycor() > WALL_POSITION or snake.head.ycor() < -WALL_POSITION:
+        is_game_on = False
+        break
 
     # Detect collision with tail.
 

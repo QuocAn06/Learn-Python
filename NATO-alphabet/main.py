@@ -1,16 +1,14 @@
 import pandas
-NATO_dictionary = pandas.read_csv("./nato_phonetic_alphabet.csv")
 
-user_message = input("Enter your Message: ")
-user_message = user_message.upper()
-list_letter = [letter for letter in user_message]
+data = pandas.read_csv("./nato_phonetic_alphabet.csv")
+print(data.to_dict())
 
-phonetic_code_words = []
-for letter in list_letter:
-    for (index, row) in NATO_dictionary.iterrows():
-        if row.letter == letter:
-            phonetic_code_words.append(row.code)
+# TODO 1. Create a dictionary in this format:
+phonetic_dict = {row.letter: row.code for (index, row) in data.iterrows()}
+print(phonetic_dict)
 
-print(phonetic_code_words)
-# for (index, row) in NATO_dictionary.iterrows():
-#     print(row.letter)
+# TODO 2. Create a list of the phonetic code words from a word that the user input:
+word = input("Enter the word: ").upper()
+output_list = [phonetic_dict[letter] for letter in word]
+print(output_list)
+

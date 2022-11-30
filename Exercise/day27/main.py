@@ -10,7 +10,8 @@ my_label.pack(side="left")
 #my_label.pack(side="bottom")
 #my_label.pack(expand=True)
 
-
+# my_label["text"] = "New text"
+my_label.config(text="New text")
 
 window.mainloop()
 

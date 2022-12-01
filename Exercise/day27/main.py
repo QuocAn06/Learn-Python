@@ -2,7 +2,7 @@ from tkinter import *
 
 window = Tk()
 window.title("My First GUI Program")
-window.minsize(width=500, height=300)
+window.minsize(width=500, height=600)
 
 #Label
 my_label = Label(text="I Am a Label", font=("Arial", 20, "bold"))
@@ -23,10 +23,22 @@ def button_clicked():
 button = Button(text="Click Me", command=button_clicked)
 button.pack()
 
-#Entry
+#Entries
 
-inputBox = Entry()
-inputBox.pack()
+entry = Entry(width=30)
+#Add some text to begin with
+entry.insert(END, string="Some text to begin with.")
+print(entry.get())
+entry.pack()
+
+#Test
+
+text = Text(height=5, width=30)
+text.focus()
+text.insert(END, "Examle of multi-line text entry.")
+print(text.get("1.0", END))
+text.pack()
+
 
 window.mainloop()
 

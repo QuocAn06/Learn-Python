@@ -93,9 +93,21 @@ window.minsize(width=500, height=400)
 #
 # bar(1, 2)
 
-#Place Method
-my_label = Label(text="New Text", font=("Arial", 20, "bold"))
-my_label.place(x=200, y=100)
+# #Place Method
+# my_label = Label(text="New Text", font=("Arial", 20, "bold"))
+# my_label.place(x=200, y=100)
 
+#Grid Method
+my_label = Label(text="col= 0, row= 0", font=("Arial", 14, "bold"))
+my_label.grid(column=0, row=0)
+
+my_label = Label(text="col= 2, row= 0", font=("Arial", 14, "bold"))
+my_label.grid(column=2, row=0)
+
+my_label = Label(text="col= 1, row= 1", font=("Arial", 14, "bold"))
+my_label.grid(column=1, row=1)
+
+my_label = Label(text="col= 3, row= 2", font=("Arial", 14, "bold"))
+my_label.grid(column=3, row=2)
 
 window.mainloop()

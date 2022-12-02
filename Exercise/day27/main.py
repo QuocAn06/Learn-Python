@@ -3,6 +3,7 @@ from tkinter import *
 window = Tk()
 window.title("My First GUI Program")
 window.minsize(width=500, height=400)
+window.config(padx=20, pady=20)
 
 # #Label
 # my_label = Label(text="I Am a Label", font=("Arial", 20, "bold"))
@@ -98,16 +99,18 @@ window.minsize(width=500, height=400)
 # my_label.place(x=200, y=100)
 
 #Grid Method
-my_label = Label(text="col= 0, row= 0", font=("Arial", 14, "bold"))
-my_label.grid(column=0, row=0)
+my_label_01 = Label(text="col= 0, row= 0", font=("Arial", 20, "bold"))
+my_label_01.grid(column=0, row=0)
+my_label_01.config(padx=50)
 
-my_label = Label(text="col= 2, row= 0", font=("Arial", 14, "bold"))
-my_label.grid(column=2, row=0)
+my_label_02 = Label(text="col= 2, row= 0", font=("Arial", 14, "bold"))
+my_label_02.grid(column=2, row=0)
 
-my_label = Label(text="col= 1, row= 1", font=("Arial", 14, "bold"))
-my_label.grid(column=1, row=1)
+my_label_03 = Label(text="col= 1, row= 1", font=("Arial", 14, "bold"))
+my_label_03.grid(column=1, row=1)
 
-my_label = Label(text="col= 3, row= 2", font=("Arial", 14, "bold"))
-my_label.grid(column=3, row=2)
+my_label_04 = Label(text="col= 3, row= 2", font=("Arial", 14, "bold"))
+my_label_04.grid(column=3, row=2)
+my_label_04.config(pady=50)
 
 window.mainloop()

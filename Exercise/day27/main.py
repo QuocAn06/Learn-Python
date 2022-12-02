@@ -18,7 +18,7 @@ my_label.config(text="New text.")
 def button_clicked():
     # print("I got clicked.")
     # my_label.config(text="Button Got Clicked.")
-    my_label.config(text=inputBox.get())
+    my_label.config(text=entry.get())
 
 button = Button(text="Click Me", command=button_clicked)
 button.pack()
@@ -42,6 +42,7 @@ text.pack()
 #Spinbox
 def spinbox_used():
     print(spinbox.get())
+
 spinbox = Spinbox(from_= 0, to= 10, width= 5,command= spinbox_used)
 spinbox.pack()
 
@@ -49,6 +50,7 @@ spinbox.pack()
 
 def scale_used(value):
     print(value)
+
 scale = Scale(from_=0, to= 100, command= scale_used)
 scale.pack()
 
@@ -62,7 +64,16 @@ checkbutton = Checkbutton(text="Is On?", variable= checked_state, command= check
 checked_state.get()
 checkbutton.pack()
 
+#RadioButton
 
+def radio_used():
+    print(radio_state.get())
+
+radio_state = IntVar()
+radioButton1 = Radiobutton(text="Option 01", value=1, variable=radio_state, command=radio_used)
+radioButton2 = Radiobutton(text="Option 02", value=2, variable=radio_state, command=radio_used)
+radioButton1.pack()
+radioButton2.pack()
 
 window.mainloop()
 

@@ -31,13 +31,14 @@ password_label.grid(row=3, column=0)
 
 # Entries
 website_entry = Entry(width=46)
-website_entry.grid(row=1, column=1, columnspan=2, pady=2)
+website_entry.grid(row=1, column=1, columnspan=2, padx=2, pady=2)
+website_entry.focus()
 
 email_entry = Entry(width=46)
-email_entry.grid(row=2, column=1, columnspan=2, pady=2)
+email_entry.grid(row=2, column=1, columnspan=2, padx=2, pady=2)
 
-password_entry = Entry(width=27)
-password_entry.grid(row=3, column=1, pady=2)
+password_entry = Entry(width=28)
+password_entry.grid(row=3, column=1, padx=3, pady=2)
 
 # Buttons
 generate_password_button = Button(text="Generate Password", font=(FONT_NAME, 8))

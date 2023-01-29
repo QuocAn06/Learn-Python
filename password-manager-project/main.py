@@ -1,4 +1,5 @@
 from tkinter import *
+from tkinter import messagebox
 
 # ---------------------------- CONSTANTS ------------------------------- #
 NAME_OF_APP = "Password Manager"

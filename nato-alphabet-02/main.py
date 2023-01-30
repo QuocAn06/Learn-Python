@@ -7,8 +7,8 @@ print(phonetic_dict)
 
 
 def nato_alphabet():
+    word = input("Enter the word: ").upper()
     try:
-        word = input("Enter the word: ").upper()
         output_list = [phonetic_dict[letter] for letter in word]
     except KeyError:
         print("Sorry, only letters in the alphabet please.")

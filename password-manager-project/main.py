@@ -40,6 +40,7 @@ def generate_password():
     password_entry.insert(0, password)
     pyperclip.copy(password)
 
+
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save():
     website = website_entry.get()
@@ -53,7 +54,7 @@ def save():
     }
 
     if (len(website) == 0) or (len(password) == 0) or (len(email) == 0):
-        messagebox.askquestion(title="Oops", message="Please don't leave any fields empty!")
+        messagebox.showwarning(title="Oops", message="Please don't leave any fields empty!")
     else:
         try:
             with open("data.json", "r") as data_file:
@@ -79,6 +80,28 @@ def save():
                 email_entry.insert(0, EXAMPLE_EMAIL)
 
 
+# ---------------------------- FIND PASSWORD ------------------------------- #
+def find_password():
+    website = website_entry.get()
+
+    if len(website) == 0:
+        messagebox.showwarning(title="Oops", message="Please don't leave the website entry empty!")
+    else:
+        try:
+            with open("data.json", "r") as data_file:
+                # Reading old data
+                data = json.load(data_file)
+        except FileNotFoundError:
+            messagebox.showinfo(title="Error", message="No Data File Found.")
+        else:
+            if website in data:
+                email = data[website]["email"]
+                password = data[website]["password"]
+                messagebox.askquestion(title=website, message=f"Email: {email}\nPassword: {password}")
+            else:
+                messagebox.showinfo(title="Error", message=f"No details for {website} exists.")
+
+
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
 window.title(NAME_OF_APP)
@@ -100,8 +123,8 @@ password_label = Label(text="Password:", bg=BLUE, font=(FONT_NAME, 11, "bold"))
 password_label.grid(row=3, column=0)
 
 # Entries
-website_entry = Entry(width=46)
-website_entry.grid(row=1, column=1, columnspan=2, padx=2, pady=2)
+website_entry = Entry(width=28)
+website_entry.grid(row=1, column=1, padx=2, pady=2)
 website_entry.focus()
 
 email_entry = Entry(width=46)
@@ -112,10 +135,13 @@ password_entry = Entry(width=28)
 password_entry.grid(row=3, column=1, padx=3, pady=2)
 
 # Buttons
-generate_password_button = Button(text="Generate Password", font=(FONT_NAME, 8), command=generate_password)
+search_button = Button(text="Search", width=17, font=(FONT_NAME, 8), command=find_password)
+search_button.grid(row=1, column=2, pady=2)
+
+generate_password_button = Button(text="Generate Password", width=17, font=(FONT_NAME, 8), command=generate_password)
 generate_password_button.grid(row=3, column=2, pady=2)
 
-add_button = Button(text="Add", width=46, command=save)
-add_button.grid(row=4, column=1, columnspan=2)
+add_button = Button(text="Add", width=47, command=save)
+add_button.grid(row=4, column=1, columnspan=2, pady=2)
 
 window.mainloop()

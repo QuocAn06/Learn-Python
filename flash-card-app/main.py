@@ -15,6 +15,17 @@ canvas.create_image(400, 263, image=lock_img)
 canvas.create_text(400, 150, text="Title", font=("Ariel", 40, "italic"))
 canvas.create_text(400, 263, text="word", font=("Ariel", 60, "bold"))
 canvas.config(bg=BACKGROUND_COLOR, highlightthickness=0)
-canvas.grid(row=0, column=0)
+canvas.grid(row=0, column=0, columnspan=2)
+
+# Button
+cross_img = PhotoImage(file="./img/wrong.png")
+unknow_button = Button(image=cross_img)
+unknow_button.config(bg=BACKGROUND_COLOR, highlightthickness=0)
+unknow_button.grid(row=1, column=0)
+
+check_img = PhotoImage(file="./img/right.png")
+know_button = Button(image=check_img)
+know_button.config(bg=BACKGROUND_COLOR, highlightthickness=0)
+know_button.grid(row=1, column=1)
 
 window.mainloop()

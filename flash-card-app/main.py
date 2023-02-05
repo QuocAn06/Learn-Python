@@ -1,8 +1,19 @@
 from tkinter import *
+import pandas
+import random
 
 # ---------------------------- CONSTANTS ------------------------------- #
 BACKGROUND_COLOR = "#B1DDC6"
 NAME_OF_APP = "Flashy"
+
+data = pandas.read_csv("data/french_words.csv")
+to_learn = data.to_dict(orient="records")
+
+
+# ---------------------------- NEXT CARD ------------------------------- #
+def next_card():
+    current_card = random.choice(to_learn)
+
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
@@ -20,12 +31,12 @@ canvas.grid(row=0, column=0, columnspan=2)
 # Button
 cross_img = PhotoImage(file="./img/wrong.png")
 unknow_button = Button(image=cross_img)
-unknow_button.config(bg=BACKGROUND_COLOR, highlightthickness=0)
+unknow_button.config(bg=BACKGROUND_COLOR, highlightthickness=0, command=next_card)
 unknow_button.grid(row=1, column=0)
 
 check_img = PhotoImage(file="./img/right.png")
 know_button = Button(image=check_img)
-know_button.config(bg=BACKGROUND_COLOR, highlightthickness=0)
+know_button.config(bg=BACKGROUND_COLOR, highlightthickness=0, command=next_card)
 know_button.grid(row=1, column=1)
 
 window.mainloop()

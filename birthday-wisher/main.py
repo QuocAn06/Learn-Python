@@ -34,4 +34,3 @@ if today_tuple in birthday_dict:
             to_addrs=birthday_person["email"],
             msg=f"Subject:{EMAIL_SUBJECT}\n\n{contents}"
         )
-        

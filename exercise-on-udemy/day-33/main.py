@@ -18,5 +18,5 @@ parameters ={
     "lng": MY_LNG
 }
 
-response = requests.get(url="https://api.sunrise-sunset.org/json")
+response = requests.get(url="https://api.sunrise-sunset.org/json", params=parameters)
 response.raise_for_status()

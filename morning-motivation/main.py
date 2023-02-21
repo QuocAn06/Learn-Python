@@ -4,9 +4,9 @@ import random as rd
 
 DOMAIN_SMTP = "smtp.gmail.com"
 DOMAIN_PORT = 587
-MY_EMAIL = "sorry8699@gmail.com"
-MY_PASSWORD = "zuuxlcqvdwtnvrtx"
-PARTNER_EMAIL = "lenguyenquocan116@gmail.com"
+MY_EMAIL = "___YOUR_EMAIL_HERE____"
+MY_PASSWORD = "___YOUR_PASSWORD_HERE____"
+PARTNER_EMAIL = "___PARTNER_EMAIL_HERE____"
 EMAIL_SUBJECT = "Monday Motivation"
 
 now = dt.datetime.now()

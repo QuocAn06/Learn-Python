@@ -11,7 +11,7 @@ MY_LONG = 106.629662
 
 
 # ---------------------------- IS ISS OVERHEAD ------------------------------- #
-def is_issoverhead():
+def is_iss_overhead():
     response = requests.get(url="http://api.open-notify.org/iss-now.json")
     response.raise_for_status()
     data = response.json()
@@ -19,8 +19,9 @@ def is_issoverhead():
     iss_latitude = float(data["iss_position"]["latitude"])
     iss_longitude = float(data["iss_position"]["longitude"])
 
-    if MY_LAT - 5 <= iss_latitude <= MY_LAT + 5 and MY_LONG - 5 <= iss_longitude <= MY_LONG + 5:
+    if MY_LAT + 5 <= iss_latitude <= MY_LAT + 5 and MY_LONG - 5 <= iss_longitude <= MY_LONG + 5:
         return True
+
 
 # ---------------------------- IS IT NIGHT ------------------------------- #
 def is_night():
@@ -45,7 +46,7 @@ def is_night():
 # ---------------------------- SEND MAIL ------------------------------- #
 while True:
     time.sleep(60)
-    if is_issoverhead() and is_night():
+    if is_iss_overhead() and is_night():
         connection = smtplib.SMTP("smtp.gmail.com", 587)
         connection.starttls()
         connection.login(MY_EMAIL, MY_PASSWORD)

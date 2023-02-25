@@ -1,14 +1,12 @@
 import requests
 
 QUIZ_AMOUNT = 10
-QUIZ_CATEGORY = 22
 QUIZ_DIFFICULTY = "medium"
 QUIZ_TYPE = "boolean"
 
 def get_data():
     parameters ={
         "amount": QUIZ_AMOUNT,
-        "category": QUIZ_CATEGORY,
         "difficulty": QUIZ_DIFFICULTY,
         "type": QUIZ_TYPE
     }

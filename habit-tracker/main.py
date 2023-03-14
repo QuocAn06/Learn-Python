@@ -40,13 +40,30 @@ graph_headers = {
 ## Post value to the graph
 pixel_post_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}"
 
-value_time = datetime.today().strftime('%Y%m%d')
-# print(type(value_time))
+
+today = datetime.today().strftime('%Y%m%d')
+print(today)
 
 pixel_data = {
-    "date": "20230312",
+    "date": today,
     "quantity": "60"
 }
 
-response = requests.post(url=pixel_post_endpoint, json=pixel_data, headers=graph_headers)
-print(response.text)
+# response = requests.post(url=pixel_post_endpoint, json=pixel_data, headers=graph_headers)
+# print(response.text)
+
+## Update value to the graph
+update_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{today}"
+
+new_pixel_data = {
+    "quantsity": "45"
+}
+
+# response = requests.put(url=update_endpoint, json=new_pixel_data, headers=graph_headers)
+# print(response.text)
+
+## Delete value of the graph
+delete_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{GRAPH_ID}/{today}"
+
+# response = requests.delete(url=delete_endpoint, headers=graph_headers)
+# print(response.text)

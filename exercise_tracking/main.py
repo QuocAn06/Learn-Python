@@ -39,6 +39,25 @@ result = response.json()
 today_date = datetime.now().strftime("%d%m%Y")
 now_time = datetime.now().strftime("%X")
 
+for exercise in result["exercises"]:
+    sheety_input = {
+        "workout": {
+            "date": today_date,
+            "time": now_time,
+            "exercise": exercise["name"].title(),
+            "duration": exercise["duration_min"],
+            "calories": exercise["nf_calories"]
+        }
+    }
 
+    bearer_headers ={
+        "Authorization": "Bearer asfa323d1fa5sdf135ads2f1"
+    }
 
-print(response.text)
+    sheety_response = requests.post(
+        url=sheety_endpoint,
+        json=sheety_input,
+        headers=bearer_headers
+    )
+
+    print(sheety_response.text)

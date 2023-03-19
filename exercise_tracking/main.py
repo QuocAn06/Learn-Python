@@ -1,3 +1,4 @@
+import os
 import requests
 from datetime import datetime
 
@@ -6,8 +7,8 @@ WEIGHT_KG = 89
 HEIGHT_CM = 180
 AGE = 26
 
-APP_ID = "802368ef"
-APP_KEY = "2ba4900dbd7d46f2e744c7fde87ea238"
+APP_ID = os.environ["NT_APP_ID"]
+APP_KEY = os.environ["NT_API_KEY"]
 
 exercise_endpoint = "https://trackapi.nutritionix.com/v2/natural/exercise"
 sheety_endpoint = "https://api.sheety.co/43f0a7eb357595513b77fb2a238ae284/workoutTracking/workouts"
@@ -51,7 +52,7 @@ for exercise in result["exercises"]:
     }
 
     bearer_headers ={
-        "Authorization": "Bearer asfa323d1fa5sdf135ads2f1"
+        "Authorization": f"Bearer {os.environ['TOKEN']}"
     }
 
     sheety_response = requests.post(
